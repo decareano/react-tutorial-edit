@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+
+
 const TableHeader = () => {
     return (
       <thead>
@@ -11,39 +13,25 @@ const TableHeader = () => {
     )
   }
 
-const TableBody = () => {
-  
-    return (
-      <table>
-        <tbody>
-          <tr>
-            <td>Charlie</td>
-            <td>Janitor</td>
-          </tr>
-          <tr>
-            <td>Mac</td>
-            <td>Bouncer</td>
-          </tr>
-          <tr>
-            <td>Dee</td>
-            <td>Aspiring actress</td>
-          </tr>
-          <tr>
-            <td>Dennis</td>
-            <td>Bartender</td>
-          </tr>
-        </tbody>
-      </table>
-    )
-  
-}
+const TableBody = (props) => {
+    const rows = props.myData.map((row, index) => {
+        return (
+            <tr key={index}>
+                <td>{row.name}</td>
+                <td>{row.job}</td>            
+            </tr>
+        )
+    })
+    return <tbody>{rows}</tbody>
+  }
 
 class Table extends Component {
     render() {
+      const {myData} = this.props
       return (
         <table>
           <TableHeader />
-          <TableBody />
+          <TableBody myData={myData} />
         </table>
       )
     }
