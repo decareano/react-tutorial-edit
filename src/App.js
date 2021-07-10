@@ -1,34 +1,13 @@
-import React, {Component} from 'react'
-import Table from './Table'
+import React from 'react'
+import './App.css'
+import ParentComp from './parentComp'
 
-class App extends Component {
-  render() {
-    const chars = [
-      {
-        name: 'Charlie',
-        job: 'Janitor',
-      },
-      {
-        name: 'Mac',
-        job: 'Bouncer',
-      },
-      {
-        name: 'Dee',
-        job: 'Aspring actress',
-      },
-      {
-        name: 'Dennis',
-        job: 'Bartender',
-      },
-    ]
-
-     return (
-      
-      <div className="Pap">
-        <Table myData={chars} />
-      </div>
+const App = () => {
+    return (
+        <div className="App">
+            <ParentComp />
+        </div>
     )
-  }
 }
 
 export default App
