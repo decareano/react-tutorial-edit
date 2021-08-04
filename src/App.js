@@ -4,7 +4,8 @@ import Table from './Table'
 import Form from './Form'
 import config from './config'
 import Firebase from 'firebase'
-import LoginButton from './login-button';
+import LoginButton from './login-button'
+import LogoutButton from './logout-button'
 
 
 class App extends Component {
@@ -14,8 +15,13 @@ class App extends Component {
         this.state = {
           characters: []
         }
+        this.state = {isLoggedIn: false};
+        
     }
 
+    handleLoginClick() {
+        this.setState({isLoggedIn: true});
+      }
     
 
     componentDidMount() {
@@ -54,21 +60,27 @@ class App extends Component {
         })
     }
       render() {
-    
-        const { characters } = this.state
+         const { isLoggedIn, loginWithRedirect } = withAuth0
+         const { characters } = this.state
         
-        return (
-          
          
-          
-          <div className="container">
-          <LoginButton />
-          <Table characterData={characters} removeCharacter={this.removeCharacter}  />
-          <Form handleSubmit={this.handleSubmit} />
-
-          </div> 
-          
-        )
+        if (isLoggedIn) {
+            return (
+                <div className="container">
+                <button onClick={() => LogoutButton({ returnTo: window.location.origin })}>
+          Log out
+            </button>
+                
+                <Table characterData={characters} removeCharacter={this.removeCharacter}  />
+                <Form handleSubmit={this.handleSubmit} />
+                </div>
+            )
+            } else {
+                
+                return <LoginButton />
+        }
+        
+        
     } 
     handleSubmit = (character) => {
         this.setState({characters: [...this.state.characters, character]})
