@@ -70,10 +70,12 @@ class App extends Component {
           
           <div className="container">
               <h1>Marcelo's blood pressure readings</h1>
+              <img src={logo} alt='pic'/>
                 <p>Add a date and the reading(high-low)</p>
-                <img src={logo} alt='pic' height={100} width={100 }/>
+                
+                
             <Table characterData={characters} removeCharacter={this.removeCharacter}  />
-            <h3>Add New</h3>
+            <h3>Add New Reading</h3>
             <Form handleSubmit={this.handleSubmit} />
 
           </div> 
