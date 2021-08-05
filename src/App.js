@@ -8,6 +8,7 @@ import LoginButton from './login-button';
 import logo from './assets/bloodPressure.jpg'
 
 
+
 class App extends Component {
     constructor(props) {
         super(props)
@@ -15,8 +16,13 @@ class App extends Component {
         this.state = {
           characters: []
         }
+        this.state = {isLoggedIn: false};
+        
     }
 
+    handleLoginClick() {
+        this.setState({isLoggedIn: true});
+      }
     
 
     componentDidMount() {
@@ -56,12 +62,11 @@ class App extends Component {
         })
     }
       render() {
-    
-        const { characters } = this.state
+         const { isLoggedIn, loginWithRedirect } = withAuth0
+         const { characters } = this.state
         
-        return (
-          
          
+
           
           <div className="container">
               <h1>Marcelo's blood pressure readings</h1>
@@ -76,6 +81,7 @@ class App extends Component {
           </div> 
           
         )
+
     } 
     handleSubmit = (character) => {
         this.setState({characters: [...this.state.characters, character]})
