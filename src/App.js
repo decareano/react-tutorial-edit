@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { withAuth0 } from '@auth0/auth0-react';
+//import { withAuth0 } from '@auth0/auth0-react';
 import Table from './Table'
 import Form from './Form'
 import config from './config'
 import Firebase from 'firebase'
-import LoginButton from './login-button'
-import LogoutButton from './logout-button'
+import LoginButton from './login-button';
+import logo from './assets/bloodPressure.jpg'
+
 
 
 class App extends Component {
@@ -53,10 +54,11 @@ class App extends Component {
 
     removeCharacter = (index) => {
         const {characters} = this.state
+        
         this.setState({
-          characters: characters.filter((character, i) => {
-            return i !== index
-          }),
+            characters: characters.filter((character, i) => {
+                return  i !== index
+            })
         })
     }
       render() {
@@ -64,23 +66,20 @@ class App extends Component {
          const { characters } = this.state
         
          
-        if (isLoggedIn) {
-            return (
-                <div className="container">
-                <button onClick={() => LogoutButton({ returnTo: window.location.origin })}>
-          Log out
-            </button>
-                
-                <Table characterData={characters} removeCharacter={this.removeCharacter}  />
-                <Form handleSubmit={this.handleSubmit} />
-                </div>
-            )
-            } else {
-                
-                return <LoginButton />
-        }
-        
-        
+
+          
+          <div className="container">
+              <h1>Marcelo's blood pressure readings</h1>
+                <p>Add a date and the reading(high-low)</p>
+                <img src={logo} alt='pic' height={100} width={100 }/>
+            <Table characterData={characters} removeCharacter={this.removeCharacter}  />
+            <h3>Add New</h3>
+            <Form handleSubmit={this.handleSubmit} />
+
+          </div> 
+          
+        )
+
     } 
     handleSubmit = (character) => {
         this.setState({characters: [...this.state.characters, character]})
