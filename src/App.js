@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./index.css";
 //import { withAuth0 } from '@auth0/auth0-react';
 import Table from './Table'
 import Form from './Form'
@@ -64,18 +65,18 @@ class App extends Component {
          return (
 
           <Container>
-            
-             
-              
-          
+            <Row>
+
           <div className="container">
              
-             <Row>
-               <Col>
-             <h1>Marcelo's blood pressure readings</h1>
-              <img src={logo} alt='pic'/>
+             
+             <div class="alert alert-primary" role="alert">
+                <h1 style={{ alignItems: "center" }}>Marcelo's blood pressure readings</h1>
+              </div>
+             <Col>
+              <img src={logo} alt="pinga" />
               </Col>
-              </Row>
+              
            </div> 
             
 
@@ -83,7 +84,7 @@ class App extends Component {
             <h3>Add New Reading</h3>
             <Form handleSubmit={this.handleSubmit} />
             
-            
+           </Row> 
            
           </Container>
          )

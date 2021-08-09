@@ -31,7 +31,7 @@ render() {
       
       <form class="form-inline">
         
-        <label htmlFor="name">Day</label>
+        <label htmlFor="name">Month-Day</label>
         <input 
           type="text"
           name="name"
@@ -40,7 +40,7 @@ render() {
           onChange={this.handleChange} />
 
         
-        <label htmlFor="job">BloodPressure reading</label>
+        <label htmlFor="job">Blood Pressure Reading</label>
         <input
           type="text"
           name="job"
