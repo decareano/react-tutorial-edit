@@ -4,8 +4,11 @@ import Table from './Table'
 import Form from './Form'
 import config from './config'
 import Firebase from 'firebase'
-import LoginButton from './login-button';
+//import LoginButton from './login-button';
 import logo from './assets/bloodPressure.jpg'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Row'
 
 
 
@@ -16,14 +19,7 @@ class App extends Component {
         this.state = {
           characters: []
         }
-        this.state = {isLoggedIn: false};
-        
     }
-
-    handleLoginClick() {
-        this.setState({isLoggedIn: true});
-      }
-    
 
     componentDidMount() {
         this.getUserData()
@@ -61,28 +57,39 @@ class App extends Component {
             })
         })
     }
-      render() {
-         const { isLoggedIn, loginWithRedirect } = withAuth0
+    render() {
+         //const { isLoggedIn, loginWithRedirect } = withAuth0
          const { characters } = this.state
         
-         
+         return (
 
+          <Container>
+            
+             
+              
           
           <div className="container">
-              <h1>Marcelo's blood pressure readings</h1>
+             
+             <Row>
+               <Col>
+             <h1>Marcelo's blood pressure readings</h1>
               <img src={logo} alt='pic'/>
-                <p>Add a date and the reading(high-low)</p>
-                
-                
+              </Col>
+              </Row>
+           </div> 
+            
+
             <Table characterData={characters} removeCharacter={this.removeCharacter}  />
             <h3>Add New Reading</h3>
             <Form handleSubmit={this.handleSubmit} />
+            
+            
+           
+          </Container>
+         )
+    }
 
-          </div> 
-          
-        )
-
-    } 
+    
     handleSubmit = (character) => {
         this.setState({characters: [...this.state.characters, character]})
     } 
