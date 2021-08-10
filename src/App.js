@@ -6,7 +6,7 @@ import Form from './Form'
 import config from './config'
 import Firebase from 'firebase'
 //import LoginButton from './login-button';
-import logo from './assets/bloodPressure.jpg'
+import logo from './assets/homerBP.jpg'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Row'
