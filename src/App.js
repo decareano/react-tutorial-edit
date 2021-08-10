@@ -70,11 +70,13 @@ class App extends Component {
           <div className="container">
              
              
-             <div class="alert alert-primary" role="alert">
-                <h1 style={{ alignItems: "center" }}>Marcelo's blood pressure readings</h1>
+             <div className="card text-center">
+             
+                
+                <div class="p-3 mb-2 bg-primary text-white"><h3>Marcelo's blood pressure readings</h3></div>
               </div>
              <Col>
-              <img src={logo} alt="pinga" />
+              <img src={logo} alt="test" />
               </Col>
               
            </div> 
