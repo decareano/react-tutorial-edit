@@ -20,7 +20,7 @@ import Firebase from 'firebase'
 class Input extends Component {
     constructor(props) {
         super(props)
-        Firebase.initializeApp(config);
+        //Firebase.initializeApp(config);
         this.state = {
           characters: []
         }
