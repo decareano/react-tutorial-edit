@@ -4,7 +4,7 @@ import "./index.css";
 import Table from './Table'
 import Form from './Form'
 import config from './config'
-//import Firebase from 'firebase'
+import Firebase from 'firebase'
 //import LoginButton from './login-button';
 //import logo from './assets/homerBP.jpg'
 import Container from 'react-bootstrap/Container'

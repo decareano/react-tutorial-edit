@@ -20,7 +20,7 @@ import Firebase from 'firebase'
 class Input extends Component {
     constructor(props) {
         super(props)
-        //Firebase.initializeApp(config);
+        
         this.state = {
           characters: []
         }
@@ -66,8 +66,9 @@ class Input extends Component {
     const { characters } = this.state
     return (
         <div>
+         <Table characterData={characters} removeCharacter={this.removeCharacter} />
+            
           
-          <Table characterData={characters} removeCharacter={this.removeCharacter}  />
          <h3>Add New Reading</h3>
           <Form handleSubmit={this.handleSubmit} />
         </div>
