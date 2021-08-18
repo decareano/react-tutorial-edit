@@ -24,6 +24,7 @@ class Input extends Component {
         this.state = {
           characters: []
         }
+        
     }
 
     componentDidMount() {
@@ -62,21 +63,27 @@ class Input extends Component {
             })
         })
     }
+
+    
   render() {
     const { characters } = this.state
+    
     return (
         <div>
          <Table characterData={characters} removeCharacter={this.removeCharacter} />
-            
-          
          <h3>Add New Reading</h3>
+         
           <Form handleSubmit={this.handleSubmit} />
+          
         </div>
     );
   }
   handleSubmit = (character) => {
     this.setState({characters: [...this.state.characters, character]})
+    
   } 
+
+  
 }
 
 export default Input;

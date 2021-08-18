@@ -17,6 +17,8 @@ class Landing extends Component {
         Firebase.initializeApp(config);
         this.state = {
           characters: []
+          
+          
         }
     }
     
@@ -43,7 +45,10 @@ class Landing extends Component {
 
     
   render() {
+    
     const {characters} = this.state
+
+    
     return (
         <div>
           <h2>Welcome to Marcelo's Blood Pressure Readings</h2>
@@ -52,9 +57,14 @@ class Landing extends Component {
             <div class="col">
               <img src={logo} alt="test" />
             </div>
-            <h1>Three Last Readings</h1>
+            <h1>Last Three Readings</h1>
             
-            <Table characterData={characters} getUserData={this.getUserData} />
+            <Table characterData={characters.sort((a, b) => {
+                let da = new Date(a.name),
+                    db = new Date(b.name)
+                return db - da
+            })
+          } />
         </div>
         
     );
